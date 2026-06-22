@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PromptStudio | Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#df7412",
+                        "primary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container": "#1c2025",
+                        "on-primary-container": "#00285d",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface": "#101419",
+                        "surface-container-lowest": "#0a0e13",
+                        "inverse-primary": "#005ac2",
+                        "secondary-fixed-dim": "#b1c6f9",
+                        "secondary": "#b1c6f9",
+                        "on-primary-fixed": "#001a42",
+                        "on-error": "#690005",
+                        "primary-container": "#4d8eff",
+                        "on-surface-variant": "#c2c6d6",
+                        "outline": "#8c909f",
+                        "inverse-surface": "#e0e2ea",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-variant": "#31353b",
+                        "on-tertiary": "#502400",
+                        "on-surface": "#e0e2ea",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "tertiary": "#ffb786",
+                        "background": "#101419",
+                        "outline-variant": "#424754",
+                        "primary-fixed": "#d8e2ff",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#262a30",
+                        "primary": "#adc6ff",
+                        "on-primary": "#002e6a",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#461f00",
+                        "on-secondary-fixed-variant": "#304671",
+                        "surface-bright": "#36393f",
+                        "inverse-on-surface": "#2d3136",
+                        "on-secondary-container": "#9fb5e7",
+                        "surface-container-highest": "#31353b",
+                        "on-secondary-fixed": "#001a42",
+                        "secondary-container": "#304671",
+                        "on-background": "#e0e2ea",
+                        "on-secondary": "#182f59",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#adc6ff",
+                        "on-tertiary-fixed": "#311400",
+                        "surface-dim": "#101419",
+                        "surface-container-low": "#181c21"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #101419;
+            color: #e0e2ea;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(49, 53, 59, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #31353b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar Implementation -->
+<header class="bg-[#101419] dark:bg-[#101419] font-manrope text-sm tracking-tight docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 h-16">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#adc6ff] tracking-tighter">PromptStudio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Workspace</a>
+<a class="text-[#adc6ff] font-semibold border-b-2 border-[#adc6ff] pb-1" href="#">Library</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Models</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center bg-[#181c21] rounded-full px-4 py-1.5 w-64">
+<span class="material-symbols-outlined text-[#c2c6d6] text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full text-on-surface-variant" placeholder="Search templates..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-[#c2c6d6] hover:bg-[#36393f] p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-[#c2c6d6] hover:bg-[#36393f] p-2 rounded-full transition-all">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-outline-variant/30">
+<img alt="User profile" data-alt="Close-up portrait of a professional man in high-end tech environment with soft blue rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdJg-trQr49mpZ_UjoUXUUFomSlckCItPTENwN0Uu1XWS9rkP08rwqmCAIb_355N64wyT2y_DxvzXUpeLGt8DnYywQ198J6ZeXE4J2wZZRrsSJACnEfbSHEwHevRnO9AwphPmAnFe6NiphkjY2RVU24_CFK1WnGn-XJ2rdqCEh14C-WsV-PKuHv43_1s8s9F_orrZhNt8WwHKnxbchAO96qERhorYCNZLfYNNVWRVsn4dp7G_xR8fzikFFCxEkSj5IFMIzWpZ01JI"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- SideNavBar (Left Panel - 20%) -->
+<aside class="bg-[#181c21] dark:bg-[#181c21] font-manrope text-sm font-medium h-full w-64 flex-shrink-0 z-40 flex flex-col p-4 space-y-2 shadow-2xl shadow-[#0a0e13]">
+<div class="pb-6 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<div class="text-lg font-black text-[#adc6ff]">PromptStudio</div>
+<div class="text-[10px] uppercase tracking-widest text-[#c2c6d6] opacity-60">v3.0 Orchestrator</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 custom-scrollbar overflow-y-auto">
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">add_comment</span>
+                    New Chat
+                </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+                    History
+                </a>
+<a class="bg-[#1c2025] text-[#adc6ff] rounded-xl px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+                    Templates
+                </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">archive</span>
+                    Archived
+                </a>
+<div class="pt-8 pb-2 px-4 text-[10px] font-bold text-[#c2c6d6]/40 uppercase tracking-widest">Recent Folders</div>
+<a class="text-[#c2c6d6] px-4 py-2 flex items-center gap-3 hover:text-white transition-all text-xs" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+                    UX Research
+                </a>
+<a class="text-[#c2c6d6] px-4 py-2 flex items-center gap-3 hover:text-white transition-all text-xs" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+                    Content Strategy
+                </a>
+<a class="text-[#c2c6d6] px-4 py-2 flex items-center gap-3 hover:text-white transition-all text-xs" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+                    Code Debugging
+                </a>
+</nav>
+<div class="mt-auto space-y-1">
+<div class="p-4 mb-4 bg-gradient-to-br from-[#1c2025] to-[#101419] rounded-xl border border-outline-variant/10">
+<div class="text-xs text-on-surface-variant mb-2">Workspace storage used</div>
+<div class="w-full bg-[#31353b] h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary w-3/4 h-full"></div>
+</div>
+<button class="mt-4 w-full bg-secondary-container text-[#adc6ff] py-2 rounded-lg text-xs font-semibold hover:brightness-110 transition-all">Upgrade to Pro</button>
+</div>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                    Help
+                </a>
+</div>
+</aside>
+<!-- Main Content (Center Panel - 60%) -->
+<section class="flex-1 bg-surface overflow-y-auto custom-scrollbar p-8">
+<header class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Template Library</h1>
+<p class="text-on-surface-variant body-md mt-2 max-w-md">Orchestrate your cognitive workflows with modular, reusable prompt architectures.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:brightness-110 transition-all shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined">add</span>
+                        New Template
+                    </button>
+</div>
+<!-- Filter Row -->
+<div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<span class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-xs font-medium cursor-pointer border border-primary/20">All Prompts</span>
+<span class="bg-surface-container-low text-on-surface-variant px-4 py-2 rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-colors">Creative Writing</span>
+<span class="bg-surface-container-low text-on-surface-variant px-4 py-2 rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-colors">Data Analysis</span>
+<span class="bg-surface-container-low text-on-surface-variant px-4 py-2 rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-colors">Frontend Dev</span>
+<span class="bg-surface-container-low text-on-surface-variant px-4 py-2 rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-colors">Market Research</span>
+</div>
+</header>
+<!-- Bento Grid of Templates -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Template Card 1 (Large/Featured) -->
+<div class="lg:col-span-2 group relative bg-surface-container rounded-xl p-8 hover:bg-surface-bright/40 transition-all duration-300 border border-outline-variant/5">
+<div class="absolute top-6 right-8 flex gap-2">
+<span class="bg-tertiary-container/20 text-tertiary-fixed-dim px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">AI Verified</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white">star</span>
+</div>
+<div class="flex flex-col h-full">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-secondary-container/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">psychology</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Cognitive Mapping Engine</h3>
+<p class="text-on-surface-variant text-sm">System for breaking down complex problems into atomic tasks.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 mb-6 border border-outline-variant/5">
+<code class="text-xs text-on-surface-variant/80 font-mono leading-relaxed block overflow-hidden line-clamp-2">
+                                ACT AS A SYSTEM ARCHITECT. ANALYZE THE FOLLOWING INPUT: {{problem_statement}}. IDENTIFY DEPENDENCIES, EDGE CASES, AND OPTIMAL DATA STRUCTURES...
+                            </code>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-1 rounded-md">#Architecture</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-1 rounded-md">#Reasoning</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Updated 2h ago</span>
+</div>
+</div>
+</div>
+<!-- Template Card 2 -->
+<div class="group bg-surface-container rounded-xl p-6 hover:bg-surface-bright/40 transition-all duration-300 border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-surface-container-high rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-[#ffb786]">auto_awesome</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2">Editorial Refiner v4</h3>
+<p class="text-on-surface-variant text-xs line-clamp-2 mb-6">Polishes raw prose into high-conversion editorial content while maintaining tone.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-primary/20 flex items-center justify-center text-[8px] font-bold">JD</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-tertiary/20 flex items-center justify-center text-[8px] font-bold">AS</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Created Oct 12</span>
+</div>
+</div>
+<!-- Template Card 3 -->
+<div class="group bg-surface-container rounded-xl p-6 hover:bg-surface-bright/40 transition-all duration-300 border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-surface-container-high rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">data_object</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2">SQL Generator</h3>
+<p class="text-on-surface-variant text-xs line-clamp-2 mb-6">Converts natural language questions into optimized PostgreSQL queries.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-1 rounded-md">#DevTools</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">Created Oct 08</span>
+</div>
+</div>
+<!-- Template Card 4 -->
+<div class="group bg-surface-container rounded-xl p-6 hover:bg-surface-bright/40 transition-all duration-300 border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-surface-container-high rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-error">bug_report</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2">Deep Debugger</h3>
+<p class="text-on-surface-variant text-xs line-clamp-2 mb-6">Heuristic-based bug discovery system for React/Next.js codebases.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-1 rounded-md">#Quality</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">Created Sep 29</span>
+</div>
+</div>
+<!-- Empty State/New Slot -->
+<div class="border-2 border-dashed border-outline-variant/20 rounded-xl p-6 flex flex-col items-center justify-center hover:border-primary/40 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2">add_circle</span>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-on-surface">Import Template</span>
+</div>
+</div>
+</section>
+<!-- Template Details (Right Panel - 20%) -->
+<aside class="w-80 bg-surface-container-low border-l border-outline-variant/10 overflow-y-auto custom-scrollbar flex flex-col">
+<div class="p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline font-bold text-lg text-on-surface">Details</h2>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-white">close</button>
+</div>
+<div class="aspect-video w-full rounded-xl bg-surface-container-high mb-8 overflow-hidden relative group">
+<img alt="Detail visualization" class="w-full h-full object-cover grayscale opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="Abstract 3D mesh architecture with flowing blue light trails on a deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9fkRAed_gBL5XRrGkD7lqdFrkhnHQnRVIxhC3-OgTc4LnI7IXGW0t7o3yuJCt0oloze0aBnlknpC4Ky-OjFXIZrVaZ7ze2qaFwGaYXKp9vWwXk37Bi8exUY_n68rutscCmb3sKVCq3PH0UIt71sDXKiISnJd0TTEanoizxsVBXkMywtZT-svp-26pzgV0JYfUGugEN257Hzuj_a5Z2ijKm4BWrUifDLCl0kZIns69QZfKwuAU845dMRVm6_EO6GVHzd5D8FZITms"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary/40">bar_chart</span>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h4 class="label-sm uppercase tracking-widest text-on-surface-variant/60 font-bold mb-4">Performance Stats</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-4 rounded-xl">
+<div class="text-[10px] text-on-surface-variant mb-1">Total Uses</div>
+<div class="text-2xl font-headline font-extrabold text-on-surface">1,284</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl">
+<div class="text-[10px] text-on-surface-variant mb-1">Success Rate</div>
+<div class="text-2xl font-headline font-extrabold text-primary">98.2%</div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="label-sm uppercase tracking-widest text-on-surface-variant/60 font-bold mb-4">Token Efficiency</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-on-surface">Average Input</span>
+<span class="text-xs font-bold text-on-surface">420 tokens</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary w-[45%] h-full"></div>
+</div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-on-surface">Average Output</span>
+<span class="text-xs font-bold text-on-surface">1,850 tokens</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary w-[85%] h-full"></div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="label-sm uppercase tracking-widest text-on-surface-variant/60 font-bold mb-4">Metadata</h4>
+<div class="bg-surface-container rounded-xl p-4 space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Version</span>
+<span class="text-on-surface font-medium">4.2.1-stable</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Model Target</span>
+<span class="text-on-surface font-medium">GPT-4-Turbo</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Author</span>
+<span class="text-primary font-medium">System Admin</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-8 bg-surface-container-highest/20 backdrop-blur-sm border-t border-outline-variant/10">
+<button class="w-full bg-surface-container-high text-on-surface py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-surface-bright transition-all mb-3">
+<span class="material-symbols-outlined text-lg">edit</span>
+                    Edit Structure
+                </button>
+<button class="w-full bg-transparent text-error py-2 text-xs font-medium hover:bg-error/10 rounded-lg transition-all">
+                    Delete Template
+                </button>
+</div>
+</aside>
+</main>
+<!-- Contextual FAB Suppression: FAB is only on main workspace, hidden here as per shell rules -->
+</body></html>

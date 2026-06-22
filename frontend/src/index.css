@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary: Blue ── */
+  --color-primary: #3B82F6;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1E3A8A;
+  --color-on-primary-container: #BFDBFE;
+  --color-primary-fixed: #DBEAFE;
+  --color-primary-fixed-dim: #93C5FD;
+  --color-inverse-primary: #2563EB;
+  --color-surface-tint: #3B82F6;
+
+  /* ── Secondary: Purple ── */
+  --color-secondary: #8B5CF6;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #4C1D95;
+  --color-on-secondary-container: #DDD6FE;
+  --color-secondary-fixed: #EDE9FE;
+  --color-secondary-fixed-dim: #C4B5FD;
+  --color-on-secondary-fixed: #1a0060;
+
+  /* ── Tertiary: Teal ── */
+  --color-tertiary: #14B8A6;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #134E4A;
+  --color-tertiary-fixed: #CCFBF1;
+  --color-tertiary-fixed-dim: #5EEAD4;
+
+  /* ── Error ── */
+  --color-error: #F87171;
+  --color-on-error: #ffffff;
+  --color-error-container: #7F1D1D;
+
+  /* ── Surfaces (darkest → brightest) ── */
+  --color-background: #0B0F14;
+  --color-surface: #0B0F14;
+  --color-surface-dim: #080B10;
+  --color-surface-bright: #252D38;
+  --color-surface-container-lowest: #060912;
+  --color-surface-container-low: #0D1117;
+  --color-surface-container: #11161D;
+  --color-surface-container-high: #161B24;
+  --color-surface-container-highest: #1F2937;
+  --color-surface-variant: #1F2937;
+
+  /* ── On-surface ── */
+  --color-on-surface: #F1F5F9;
+  --color-on-surface-variant: #8B96A8;
+  --color-on-background: #F1F5F9;
+  --color-inverse-surface: #F1F5F9;
+  --color-inverse-on-surface: #1F2937;
+
+  /* ── Outline ── */
+  --color-outline: #374151;
+  --color-outline-variant: #1E2535;
+
+  /* ── Typography ── */
+  --font-headline: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-label: 'DM Sans', sans-serif;
+
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background: #0B0F14;
+  }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1F2937; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #374151; }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(17, 22, 29, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25), 0 4px 24px rgba(59, 130, 246, 0.08);
+  }
+
+  .card-glow-teal:hover {
+    box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.25), 0 4px 24px rgba(20, 184, 166, 0.08);
+  }
+}

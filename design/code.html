@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PromptStudio | Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#4d8eff",
+              "secondary-fixed-dim": "#b1c6f9",
+              "tertiary-container": "#df7412",
+              "surface-container-high": "#262a30",
+              "error-container": "#93000a",
+              "primary": "#adc6ff",
+              "on-tertiary-fixed-variant": "#723600",
+              "surface-container": "#1c2025",
+              "outline": "#8c909f",
+              "surface-container-low": "#181c21",
+              "on-tertiary-fixed": "#311400",
+              "on-tertiary-container": "#461f00",
+              "secondary-container": "#304671",
+              "on-background": "#e0e2ea",
+              "secondary-fixed": "#d8e2ff",
+              "on-error": "#690005",
+              "tertiary": "#ffb786",
+              "on-secondary-fixed": "#001a42",
+              "primary-fixed": "#d8e2ff",
+              "error": "#ffb4ab",
+              "on-primary-container": "#00285d",
+              "secondary": "#b1c6f9",
+              "inverse-surface": "#e0e2ea",
+              "on-surface": "#e0e2ea",
+              "tertiary-fixed": "#ffdcc6",
+              "inverse-primary": "#005ac2",
+              "tertiary-fixed-dim": "#ffb786",
+              "background": "#101419",
+              "surface-container-lowest": "#0a0e13",
+              "surface-container-high": "#262a30",
+              "surface-container-highest": "#31353b",
+              "on-primary-fixed-variant": "#004395",
+              "on-secondary-container": "#9fb5e7",
+              "inverse-on-surface": "#2d3136",
+              "on-tertiary": "#502400",
+              "surface-bright": "#36393f",
+              "on-secondary-fixed-variant": "#304671",
+              "on-error-container": "#ffdad6",
+              "surface-variant": "#31353b",
+              "on-surface-variant": "#c2c6d6",
+              "on-secondary": "#182f59",
+              "primary-fixed-dim": "#adc6ff",
+              "surface": "#101419",
+              "outline-variant": "#424754",
+              "surface-dim": "#101419",
+              "on-primary": "#002e6a",
+              "surface-tint": "#adc6ff",
+              "on-primary-fixed": "#001a42"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      .font-headline { font-family: 'Manrope', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #31353b; border-radius: 10px; }
+      .glass {
+        background: rgba(49, 53, 59, 0.8);
+        backdrop-filter: blur(24px);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container h-screen overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-6 h-16 bg-[#101419] dark:bg-[#101419] bg-[#181c21] flat no shadows font-manrope text-sm tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#adc6ff] tracking-tighter">PromptStudio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#adc6ff] font-semibold border-b-2 border-[#adc6ff] pb-1" href="#">Workspace</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Library</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Models</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-xs w-64 focus:ring-1 focus:ring-primary focus:bg-surface-container transition-all" placeholder="Search workspace..." type="text"/>
+</div>
+<button class="text-[#c2c6d6] hover:text-[#adc6ff] p-2 hover:bg-[#36393f] rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-[#c2c6d6] hover:text-[#adc6ff] p-2 hover:bg-[#36393f] rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden ml-2 ring-1 ring-outline-variant">
+<img alt="User profile" data-alt="professional male portrait with neutral expression and studio lighting on dark gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQjQ8fFPrbFwf2wVE3gOPxIeqFSey-YU8J_HpvuU9zszmYx_Bm70FXyCqyEIJmkq3k_intx4fX2mESvv_dACFSKRhnR07xi-aAnecaizoLk6fmnTOYdCKX_TUBbDKuIf6BaJGjU_iidrUFI_BM8Vmajbtl6P6LecPDGQSuWLYHsJcA8JkppwhqcfkCG05f5sEmEkqsSKX2SEjIC_44LiK7mW-Ru_56chFuVwF73K8Ke_hTy75-K_3_RryReF9vK5eif72qvVHGAGY"/>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-64px)] w-full overflow-hidden">
+<!-- Left Panel: Sidebar (20%) -->
+<aside class="w-1/5 min-w-[260px] bg-[#181c21] dark:bg-[#181c21] flex flex-col p-4 space-y-2 h-full z-40 shadow-2xl shadow-[#0a0e13] font-manrope text-sm font-medium">
+<button class="w-full bg-primary text-on-primary rounded-xl px-4 py-3.5 flex items-center justify-center gap-2 font-bold mb-4 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add_comment">add_comment</span>
+                New Chat
+            </button>
+<div class="space-y-1 overflow-y-auto flex-1">
+<div class="px-4 py-2 text-[10px] uppercase tracking-[0.1em] text-outline font-bold">Recent History</div>
+<a class="bg-[#1c2025] text-[#adc6ff] rounded-xl px-4 py-3 flex items-center gap-3 translate-x-1 transition-transform group" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<span class="truncate">GPT-4 Architecture Design</span>
+</a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="Description">description</span>
+<span class="truncate">Product Launch Prompt</span>
+</a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="Description">description</span>
+<span class="truncate">Marketing Ad Copy v2</span>
+</a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="archive">archive</span>
+<span class="truncate">Archived Project A</span>
+</a>
+</div>
+<div class="pt-4 mt-auto space-y-1">
+<button class="w-full py-3 px-4 rounded-xl text-primary border border-primary/20 hover:bg-primary/10 transition-colors mb-4 text-xs font-bold">
+                    Upgrade to Pro
+                </button>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Help</span>
+</a>
+</div>
+</aside>
+<!-- Center Panel: Main Content (60%) -->
+<section class="flex-1 bg-surface flex flex-col relative overflow-hidden">
+<div class="flex-1 overflow-y-auto p-8 space-y-12">
+<!-- AI Response Example -->
+<div class="max-w-3xl mx-auto space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="smart_toy" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="space-y-4">
+<h2 class="text-xl font-headline font-bold text-on-surface">Let's refine your prompt orchestrator.</h2>
+<p class="text-on-surface-variant leading-relaxed font-body">I've analyzed your initial request. To create a high-fidelity prompt for a technical architecture, we should define the core pillars. Select a module below to inject specific parameters into the workspace.</p>
+</div>
+</div>
+<!-- 2x2 Interactive Quiz Grid -->
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-surface-container hover:bg-surface-container-high p-5 rounded-xl text-left transition-all border border-transparent hover:border-outline-variant group">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-2xl">📝</span>
+<span class="font-headline font-bold text-on-surface">Structure</span>
+</div>
+<p class="text-xs text-on-surface-variant group-hover:text-on-surface">Define the logical flow and markdown hierarchy of the output.</p>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high p-5 rounded-xl text-left transition-all border border-transparent hover:border-outline-variant group">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-2xl">🎯</span>
+<span class="font-headline font-bold text-on-surface">Goal</span>
+</div>
+<p class="text-xs text-on-surface-variant group-hover:text-on-surface">Set the primary objective and success criteria for the AI.</p>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high p-5 rounded-xl text-left transition-all border border-transparent hover:border-outline-variant group">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-2xl">👥</span>
+<span class="font-headline font-bold text-on-surface">Audience</span>
+</div>
+<p class="text-xs text-on-surface-variant group-hover:text-on-surface">Calibrate language complexity for the target reader.</p>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high p-5 rounded-xl text-left transition-all border border-transparent hover:border-outline-variant group">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-2xl">⚡</span>
+<span class="font-headline font-bold text-on-surface">Constraints</span>
+</div>
+<p class="text-xs text-on-surface-variant group-hover:text-on-surface">Add negative constraints and strictly prohibited formatting.</p>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Prompt Input Area -->
+<div class="p-6 bg-gradient-to-t from-surface to-transparent">
+<div class="max-w-3xl mx-auto glass p-1.5 rounded-xl shadow-2xl border border-outline-variant/20">
+<div class="flex items-end gap-2 bg-surface-container-low rounded-[1.2rem] p-4">
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body text-base resize-none placeholder:text-outline" placeholder="Compose your prompt masterstroke..." rows="3"></textarea>
+<div class="flex flex-col gap-2">
+<button class="p-2.5 bg-primary text-on-primary rounded-xl hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center px-4 py-2">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="attach_file">attach_file</span>
+<span>Context</span>
+</button>
+<button class="flex items-center gap-1.5 text-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span>Enhance</span>
+</button>
+</div>
+<span class="text-[10px] text-outline font-medium tracking-wider">GPT-4o • 128K TOKEN WINDOW</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Optimization Settings (20%) -->
+<aside class="w-1/5 min-w-[280px] bg-surface-container-low p-6 overflow-y-auto border-l border-outline-variant/10 space-y-8">
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="tune">tune</span>
+                    Optimization Settings
+                </h3>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-outline font-bold">Optimization Depth</label>
+<select class="w-full bg-surface-container border-none rounded-xl text-sm py-2.5 px-3 focus:ring-1 focus:ring-primary text-on-surface">
+<option>Standard Refinement</option>
+<option>Deep Recursive</option>
+<option>Maximum Creative</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-outline font-bold">Reasoning Level</label>
+<select class="w-full bg-surface-container border-none rounded-xl text-sm py-2.5 px-3 focus:ring-1 focus:ring-primary text-on-surface">
+<option>Logical/Direct</option>
+<option>Chain of Thought</option>
+<option>Expert Peer Review</option>
+</select>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Verification</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Strict Structure</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="variable">variables</span>
+                    Prompt Parameters
+                </h3>
+<div class="bg-surface-container p-4 rounded-xl space-y-4">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span>🎓</span>
+<span class="text-xs font-bold text-on-surface">Audience</span>
+</div>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-xs py-2 focus:ring-1 focus:ring-tertiary text-on-surface">
+<option>Senior Engineer</option>
+<option>Product Manager</option>
+<option>Beginner Learner</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span>📋</span>
+<span class="text-xs font-bold text-on-surface">Format</span>
+</div>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-xs py-2 focus:ring-1 focus:ring-tertiary text-on-surface">
+<option>Technical Brief</option>
+<option>Narrative Summary</option>
+<option>Step-by-Step Guide</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span>🎭</span>
+<span class="text-xs font-bold text-on-surface">Tone</span>
+</div>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-xs py-2 focus:ring-1 focus:ring-tertiary text-on-surface">
+<option>Analytical</option>
+<option>Persuasive</option>
+<option>Empathetic</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 p-4 rounded-xl border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="auto_fix">auto_fix</span>
+<span class="text-xs font-bold text-primary">Pro Tip</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Using "Expert Peer Review" reasoning increases accuracy by 22% for code generation prompts.</p>
+</div>
+</aside>
+</main>
+</body></html>

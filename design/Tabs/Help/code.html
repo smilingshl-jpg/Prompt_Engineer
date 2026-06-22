@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PromptStudio | Help &amp; Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#df7412",
+              "primary-fixed-dim": "#adc6ff",
+              "secondary-fixed": "#d8e2ff",
+              "surface-container": "#1c2025",
+              "on-primary-container": "#00285d",
+              "on-primary-fixed-variant": "#004395",
+              "surface": "#101419",
+              "surface-container-lowest": "#0a0e13",
+              "inverse-primary": "#005ac2",
+              "secondary-fixed-dim": "#b1c6f9",
+              "secondary": "#b1c6f9",
+              "on-primary-fixed": "#001a42",
+              "on-error": "#690005",
+              "primary-container": "#4d8eff",
+              "on-surface-variant": "#c2c6d6",
+              "outline": "#8c909f",
+              "inverse-surface": "#e0e2ea",
+              "tertiary-fixed": "#ffdcc6",
+              "surface-variant": "#31353b",
+              "on-tertiary": "#502400",
+              "on-surface": "#e0e2ea",
+              "on-tertiary-fixed-variant": "#723600",
+              "tertiary-fixed-dim": "#ffb786",
+              "tertiary": "#ffb786",
+              "background": "#101419",
+              "outline-variant": "#424754",
+              "primary-fixed": "#d8e2ff",
+              "error": "#ffb4ab",
+              "surface-container-high": "#262a30",
+              "primary": "#adc6ff",
+              "on-primary": "#002e6a",
+              "error-container": "#93000a",
+              "on-tertiary-container": "#461f00",
+              "on-secondary-fixed-variant": "#304671",
+              "surface-bright": "#36393f",
+              "inverse-on-surface": "#2d3136",
+              "on-secondary-container": "#9fb5e7",
+              "surface-container-highest": "#31353b",
+              "on-secondary-fixed": "#001a42",
+              "secondary-container": "#304671",
+              "on-background": "#e0e2ea",
+              "on-secondary": "#182f59",
+              "on-error-container": "#ffdad6",
+              "surface-tint": "#adc6ff",
+              "on-tertiary-fixed": "#311400",
+              "surface-dim": "#101419",
+              "surface-container-low": "#181c21"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(49, 53, 59, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        body {
+            background-color: #101419;
+            color: #e0e2ea;
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101419;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #31353b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- Left Sidebar: SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#181c21] dark:bg-[#181c21] shadow-2xl shadow-[#0a0e13] flex flex-col p-4 space-y-2 font-manrope text-sm font-medium">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">token</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#adc6ff]">PromptStudio</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60">v3.0 Orchestrator</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">add_comment</span> New Chat
+            </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">history</span> History
+            </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">description</span> Templates
+            </a>
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">archive</span> Archived
+            </a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-outline-variant/10">
+<a class="text-[#c2c6d6] px-4 py-3 flex items-center gap-3 hover:bg-[#262a30] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+<!-- Active State: Help -->
+<a class="bg-[#1c2025] text-[#adc6ff] rounded-xl px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">help_outline</span> Help
+            </a>
+<button class="mt-4 w-full bg-secondary-container text-on-secondary-container py-3 px-4 rounded-xl font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">bolt</span> Upgrade to Pro
+            </button>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#101419] dark:bg-[#101419] z-50 flex justify-between items-center px-8 border-b border-outline-variant/5">
+<div class="flex items-center gap-8">
+<nav class="flex gap-6 font-manrope text-sm tracking-tight">
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Workspace</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Library</a>
+<a class="text-[#c2c6d6] hover:text-[#adc6ff] transition-colors" href="#">Models</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#36393f] rounded-full text-[#c2c6d6] transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#36393f] rounded-full text-[#c2c6d6] transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="User profile" data-alt="Portrait of a professional man with clean lighting and neutral background for user profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAorWJAUNewAky14DvW8HKoQIZoq4fl4SwEx0XO5zl2LAlPLzyl9Zncy83BS-97eVCosyc-rmKMzjCJ6Rgrp4Mj2Es4OO5doVezphND-sAQo4ScLJFjEChq8HfuViW64neEsHaGKVCg5MRfenq1xoJ8KwDS3skwUHXTsOKLdHbX-hqRAUnAXtnEQoHHQGSxHEGij5zHQqeZrfT6yNa7a_ScGIiMBJkstqyXQ7KcGQfMO4NrBRkeM4ZQjQBzosq_QIWisKT_gXqfAD4"/>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="ml-64 mt-16 flex-1 h-[calc(100vh-64px)] overflow-y-auto grid grid-cols-12 gap-0">
+<!-- Center Panel: Search, FAQ, Guides -->
+<section class="col-span-12 lg:col-span-8 p-8 space-y-12">
+<!-- Hero Search -->
+<div class="relative max-w-2xl mx-auto text-center py-12">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight text-white mb-4">How can we help?</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-lg focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-on-surface-variant/40" placeholder="Search for guides, tools, or shortcuts..." type="text"/>
+</div>
+<div class="mt-4 flex justify-center gap-2 flex-wrap">
+<span class="text-xs text-on-surface-variant/60 uppercase tracking-widest font-bold">Trending:</span>
+<a class="text-xs bg-surface-container-high px-2 py-1 rounded text-primary hover:bg-primary/10 transition-colors" href="#">API Keys</a>
+<a class="text-xs bg-surface-container-high px-2 py-1 rounded text-primary hover:bg-primary/10 transition-colors" href="#">Model Comparison</a>
+<a class="text-xs bg-surface-container-high px-2 py-1 rounded text-primary hover:bg-primary/10 transition-colors" href="#">Billing</a>
+</div>
+</div>
+<!-- FAQ Sections (Asymmetric Layout) -->
+<div class="space-y-6">
+<h3 class="font-headline text-xl font-bold border-l-4 border-primary pl-4">Frequently Asked Questions</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-surface-container rounded-xl p-6 hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">How do I optimize my prompt parameters?</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">arrow_forward_ios</span>
+</div>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Learn about temperature, top_p, and frequency penalty settings to get better outputs.</p>
+</div>
+<div class="bg-surface-container rounded-xl p-6 hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Connecting custom API endpoints</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">arrow_forward_ios</span>
+</div>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Step-by-step guide to integrating your own private LLM infrastructure.</p>
+</div>
+<div class="bg-surface-container rounded-xl p-6 hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Understanding token usage &amp; limits</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">arrow_forward_ios</span>
+</div>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">A detailed breakdown of how we calculate usage across different models.</p>
+</div>
+<div class="bg-surface-container rounded-xl p-6 hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Collaborating on Shared Libraries</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">arrow_forward_ios</span>
+</div>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">How to invite team members and manage permissions on prompt sets.</p>
+</div>
+</div>
+</div>
+<!-- Getting Started Video Guides -->
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-xl font-bold border-l-4 border-tertiary pl-4">Getting Started Guides</h3>
+<a class="text-sm text-primary font-semibold hover:underline" href="#">View All Videos</a>
+</div>
+<div class="grid sm:grid-cols-3 gap-6">
+<div class="space-y-3">
+<div class="aspect-video bg-surface-container-highest rounded-xl overflow-hidden relative group cursor-pointer shadow-lg shadow-black/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Abstract smooth geometric shapes in soft blue and purple tones, minimalist aesthetic for background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSuFDclQAxkEBlInIj8xHnC9CZWUA60qxwCCRJqtBLNNuvbMIbaGe7lYxfNYvIX7KIG56rLXHQVodz7CSHKVeG-XbxQNr9nU-apSo5LRhuTyWiZVAeCMwJ_1MqyXAwaQo6Iwtml-QvjANlQcZ4nis_ePh_vXkQgvotNW82BrjgyjG_wntHu8DncEveJdLuD_QRMIlgQALKr5dlDrw810uprI8p5O4ccIjNDyZlFQTR-2KP6ORD1L4-96xH1NsSU-6fHwqvjt8ADGM"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-white opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 px-2 py-1 rounded text-[10px] text-white font-bold">4:20</div>
+</div>
+<h5 class="font-bold text-sm">Platform Walkthrough</h5>
+</div>
+<div class="space-y-3">
+<div class="aspect-video bg-surface-container-highest rounded-xl overflow-hidden relative group cursor-pointer shadow-lg shadow-black/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Close up of computer code on a dark screen with vibrant glowing syntax highlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHq9f-6hYthUn2R1EboTf4vX5_PBvOXQQlmbr9dM9auHHGxrIAlZigQ5fYrH_waFdFgBH6A85GPHNjOFQH0yHHVxpdJM_ZB2zfU_AO90pygVXUaisFez4nA1ZkqkypVODH55Fc76xF57XfShUUtelPmvMeoIMAct9iz48np7dtaw3ZYsI8ED8qIHkrdq_U6KovjX86HJInu760bvK2nd6S06LLr_VYMRT98K8eUykIsvrl3kiGV1IZ_eO_d2-nnpMkAmSLXv5B2o"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-white opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 px-2 py-1 rounded text-[10px] text-white font-bold">12:15</div>
+</div>
+<h5 class="font-bold text-sm">Advanced Orchestration</h5>
+</div>
+<div class="space-y-3">
+<div class="aspect-video bg-surface-container-highest rounded-xl overflow-hidden relative group cursor-pointer shadow-lg shadow-black/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Flowing liquid glass shapes with deep blue and gold refractions, premium tech visual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVcl3JqV5ZDRElRbZEZSBpb36EPExA2h-gCB9JTJ8QYQvMGn089U6izdm0WaPQCy4y6R1hMn8r2mBYtDzRd3f73yOCe0Im25-4l_dRrmTGThsj-vIVyG4rbntCH4WJcv_0E5C-tvRTzNRMXyOSy4at6ECzOJDS9aRnTYwv0rwN8tMNhhqlwTHEou-wreOtb98gcQqezjC0rK91BM7aqQ03C9H5fILPFONpvDu7SvVBApVDbqA66KIdbyXVthyWCPqcGa623trqNqY"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-white opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 px-2 py-1 rounded text-[10px] text-white font-bold">8:45</div>
+</div>
+<h5 class="font-bold text-sm">Mastering Variables</h5>
+</div>
+</div>
+</div>
+<!-- Helpful Resources Cards -->
+<div class="grid md:grid-cols-2 gap-8">
+<div class="flex items-start gap-4 p-6 rounded-xl bg-surface-container-low border border-outline-variant/5">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div>
+<h4 class="font-bold mb-1">Full Documentation</h4>
+<p class="text-sm text-on-surface-variant mb-4">Deep dive into our API, schemas, and architecture patterns.</p>
+<a class="inline-flex items-center text-primary text-sm font-bold gap-1 group" href="#">
+                            Explore Docs <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 rounded-xl bg-surface-container-low border border-outline-variant/5">
+<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary">groups</span>
+</div>
+<div>
+<h4 class="font-bold mb-1">Community Discord</h4>
+<p class="text-sm text-on-surface-variant mb-4">Join 20,000+ prompt engineers to share workflows and tips.</p>
+<a class="inline-flex items-center text-tertiary text-sm font-bold gap-1 group" href="#">
+                            Join Server <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: System Status & Contact -->
+<aside class="col-span-12 lg:col-span-4 bg-surface-container-low p-8 border-l border-outline-variant/10 space-y-12">
+<!-- System Status -->
+<div class="space-y-6">
+<h3 class="font-headline text-lg font-bold">System Status</h3>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container rounded-xl flex items-center justify-between border-l-4 border-green-500">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 animate-pulse">check_circle</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant/60">Global API</p>
+<p class="font-bold text-sm">Operational</p>
+</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">99.98%</span>
+</div>
+<div class="p-4 bg-surface-container rounded-xl flex items-center justify-between border-l-4 border-green-500">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant/60">Web Dashboard</p>
+<p class="font-bold text-sm">Operational</p>
+</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">100%</span>
+</div>
+<div class="p-4 bg-surface-container rounded-xl flex items-center justify-between border-l-4 border-tertiary-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container">warning</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant/60">Image Gen Node</p>
+<p class="font-bold text-sm">Partial Outage</p>
+</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">Delayed</span>
+</div>
+</div>
+<button class="w-full text-center text-xs font-bold text-on-surface-variant/60 hover:text-primary transition-colors uppercase tracking-widest">View Historical Uptime</button>
+</div>
+<!-- Contact Support Form -->
+<div class="space-y-6">
+<div>
+<h3 class="font-headline text-lg font-bold">Contact Support</h3>
+<p class="text-xs text-on-surface-variant mt-1">Typical response time: <span class="text-primary font-bold">Under 2 hours</span></p>
+</div>
+<form class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Subject</label>
+<select class="w-full bg-surface-container border-none rounded-xl p-3 text-sm focus:ring-1 focus:ring-primary/40">
+<option>Technical Issue</option>
+<option>Billing Question</option>
+<option>Feature Request</option>
+<option>API Integration</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Priority</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-surface-container border border-outline-variant/10 py-2 text-[10px] font-bold uppercase rounded-lg hover:border-primary transition-colors" type="button">Low</button>
+<button class="bg-surface-container border border-primary/40 py-2 text-[10px] font-bold uppercase rounded-lg text-primary" type="button">Normal</button>
+<button class="bg-surface-container border border-outline-variant/10 py-2 text-[10px] font-bold uppercase rounded-lg hover:border-error transition-colors" type="button">High</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 ml-1">Message</label>
+<textarea class="w-full bg-surface-container border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-primary/40 placeholder:text-on-surface-variant/30 resize-none" placeholder="Describe your issue in detail..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-3 rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">send</span>
+                        Submit Ticket
+                    </button>
+<p class="text-[10px] text-center text-on-surface-variant/40 leading-tight">By submitting, you agree to our Support terms. Personal data will be handled according to our Privacy Policy.</p>
+</form>
+</div>
+<!-- Footer Small Actions -->
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col gap-3">
+<a class="flex items-center gap-2 text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">history_edu</span> Review Terms of Service
+                </a>
+<a class="flex items-center gap-2 text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">verified_user</span> Security Policy
+                </a>
+</div>
+</aside>
+</main>
+</body></html>
